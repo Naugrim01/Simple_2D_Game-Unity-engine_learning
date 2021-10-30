@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5219403690724420867, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_Name
-      value: GameObject (2)
+      value: Platform3
       objectReference: {fileID: 0}
     - target: {fileID: 5271648225634132592, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_RootOrder
@@ -521,7 +521,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5219403690724420867, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_Name
-      value: GameObject (1)
+      value: Platform2
       objectReference: {fileID: 0}
     - target: {fileID: 5271648225634132592, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_RootOrder
@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 1834349285}
   - component: {fileID: 1834349288}
   - component: {fileID: 1834349289}
+  - component: {fileID: 1834349290}
   m_Layer: 0
   m_Name: Jack
   m_TagString: Untagged
@@ -721,6 +722,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1834349290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834349284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95845875901192499453a831fdee010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5829830789341421184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,7 +743,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5219403690724420867, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_Name
-      value: GameObject
+      value: Platform1
       objectReference: {fileID: 0}
     - target: {fileID: 5271648225634132592, guid: 5fa05fa9822d6fd459a9a47ae42b8f00, type: 3}
       propertyPath: m_RootOrder
