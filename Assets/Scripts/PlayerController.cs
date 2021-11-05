@@ -4,18 +4,43 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float heroSpeed;
     Animator anim;
+    Rigidbody2D rgdBody;
+    bool dirToRight = true;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        rgdBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalMove = Input.GetAxis("Horizontal");
-        anim.SetFloat("speed",horizontalMove);
+        rgdBody.velocity = new Vector2(horizontalMove * heroSpeed, rgdBody.velocity.y);
+
+        anim.SetFloat("speed",Mathf.Abs(horizontalMove));
+
+        if(horizontalMove < 0 && dirToRight)
+        {
+            Flip();
+        }
+        else if (horizontalMove > 0 && !dirToRight)
+        {
+            Flip();
+        }
+
+    }
+
+    void Flip()
+    {
+
+        dirToRight = !dirToRight;
+        Vector2 heroScale = gameObject.transform.localScale;
+        heroScale.x *= -1;
+        gameObject.transform.localScale = heroScale;
     }
 }
