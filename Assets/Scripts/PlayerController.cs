@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float heroSpeed;
+    public float jumpForce;
     Animator anim;
     Rigidbody2D rgdBody;
     bool dirToRight = true;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         float horizontalMove = Input.GetAxis("Horizontal");
         rgdBody.velocity = new Vector2(horizontalMove * heroSpeed, rgdBody.velocity.y);
 
+
         anim.SetFloat("speed",Mathf.Abs(horizontalMove));
 
         if(horizontalMove < 0 && dirToRight)
@@ -33,6 +35,11 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        if(Input.GetKeyDown (KeyCode.Space))
+        {
+            rgdBody.AddForce (new Vector2 (0f, jumpForce));
+            anim.SetTrigger("jump");
+        }
     }
 
     void Flip()
