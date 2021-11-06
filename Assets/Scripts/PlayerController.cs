@@ -6,9 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float heroSpeed;
     public float jumpForce;
+    public Transform groundTester;
+    public LayerMask layersToTest;
     Animator anim;
     Rigidbody2D rgdBody;
     bool dirToRight = true;
+    private bool onTheGround;
+    private float radius = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        onTheGround = Physics2D.OverlapCircle(groundTester.position, radius, layersToTest);
+
         float horizontalMove = Input.GetAxis("Horizontal");
         rgdBody.velocity = new Vector2(horizontalMove * heroSpeed, rgdBody.velocity.y);
 
@@ -35,7 +41,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if(Input.GetKeyDown (KeyCode.Space))
+        if(Input.GetKeyDown (KeyCode.Space)&&onTheGround)
         {
             rgdBody.AddForce (new Vector2 (0f, jumpForce));
             anim.SetTrigger("jump");
