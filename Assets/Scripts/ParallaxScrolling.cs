@@ -19,7 +19,7 @@ public class ParallaxScrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deltaCameraPosition = (cameraTransform.position - prevCameraPosition);
+        deltaCameraPosition = cameraTransform.position - prevCameraPosition;
         Vector3 parallaxPosition = new Vector3(transform.position.x + (deltaCameraPosition.x * parallaxFactor), transform.position.y, transform.position.z);
         transform.position = parallaxPosition;
         prevCameraPosition = cameraTransform.position;
