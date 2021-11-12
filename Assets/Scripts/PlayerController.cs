@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public Transform groundTester;
     public LayerMask layersToTest;
+    public Transform startPoint;
     Animator anim;
     Rigidbody2D rgdBody;
     bool dirToRight = true;
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("spikeContact"))
+        {
+            rgdBody.velocity = Vector2.zero;
+            return;
+        }
         onTheGround = Physics2D.OverlapCircle(groundTester.position, radius, layersToTest);
 
         float horizontalMove = Input.GetAxis("Horizontal");
@@ -56,4 +62,10 @@ public class PlayerController : MonoBehaviour
         heroScale.x *= -1;
         gameObject.transform.localScale = heroScale;
     }
+
+    public void RestartHero()
+    {
+        gameObject.transform.position = startPoint.position;
+    }
+
 }
