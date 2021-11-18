@@ -16,6 +16,7 @@ public class MovingPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //positions of start and stop moving platform
         startPoint = navStartPoint.position;
         endPoint = navEndPoint.position;
         Destroy(navStartPoint.gameObject);
@@ -25,21 +26,27 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //modification of prathorm position
         currentPlatformPosition = Vector2.Lerp(startPoint, endPoint, Mathf.PingPong(Time.time * speed, 1));
-        //transform.Translate(speed, 0, 0);
         transform.position = currentPlatformPosition;
     }
-
+    //when player is on the platform:
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
-        other.transform.parent = transform;
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log(other.gameObject.name);
+            other.transform.parent = transform;
+        }
     }
-
+    //when player is leaving the platform
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name + " out");
-        other.transform.parent = null;
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log(other.gameObject.name + " out");
+            other.transform.parent = null;
+        }
     }
 
 }

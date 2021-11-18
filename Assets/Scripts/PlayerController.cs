@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundTester;
     public LayerMask layersToTest;
     public Transform startPoint;
+    public AudioClip clip;
     Animator anim;
     Rigidbody2D rgdBody;
     bool dirToRight = true;
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             rgdBody.AddForce (new Vector2 (0f, jumpForce));
             anim.SetTrigger("jump");
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
     }
 

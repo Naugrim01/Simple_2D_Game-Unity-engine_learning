@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpBox : MonoBehaviour
 {
     CounterController counterController;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class PickUpBox : MonoBehaviour
         if (other.gameObject.name == "Jack")
         {
             Destroy(this.gameObject);
+            AudioSource.PlayClipAtPoint(clip, transform.position);
             counterController.IncrementCounter();
         }
     }
