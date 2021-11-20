@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y < -7)
+        {
+            RestartHero();
+        }
+
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("spikeContact"))
         {
             rgdBody.velocity = Vector2.zero;
