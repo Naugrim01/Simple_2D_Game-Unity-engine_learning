@@ -6,6 +6,7 @@ public class PickUpBox : MonoBehaviour
 {
     CounterController counterController;
     public AudioClip clip;
+    public GameObject particlesPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class PickUpBox : MonoBehaviour
             Destroy(this.gameObject);
             AudioSource.PlayClipAtPoint(clip, transform.position);
             counterController.IncrementCounter();
+            Instantiate(particlesPrefab, transform.position, transform.rotation);
         }
     }
 }
