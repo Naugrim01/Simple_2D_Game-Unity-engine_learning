@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // restart hero when he fall 
         if(transform.position.y < -7)
         {
             RestartHero();
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
             rgdBody.velocity = Vector2.zero;
             return;
         }
+
+
         onTheGround = Physics2D.OverlapCircle(groundTester.position, radius, layersToTest);
 
         float horizontalMove = Input.GetAxis("Horizontal");
