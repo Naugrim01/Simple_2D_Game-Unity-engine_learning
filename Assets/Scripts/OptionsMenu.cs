@@ -56,22 +56,25 @@ public class OptionsMenu : MonoBehaviour
         {
             theMixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
             mastSlider.value = PlayerPrefs.GetFloat("MasterVol");
-            mastLabel.text = (mastSlider.value + 80).ToString();
+           
         }
 
         if (PlayerPrefs.HasKey("MusicVol"))
         {
             theMixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
             musicSlider.value = PlayerPrefs.GetFloat("MusicVol");
-            musicLabel.text = (musicSlider.value + 80).ToString();
+            
         }
 
         if (PlayerPrefs.HasKey("SFXVol"))
         {
             theMixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXVol"));
             sfxSlider.value = PlayerPrefs.GetFloat("SFXVol");
-            sfxLabel.text = (sfxSlider.value + 80).ToString();
+         
         }
+        mastLabel.text = (mastSlider.value + 80).ToString();
+        musicLabel.text = (musicSlider.value + 80).ToString();
+        sfxLabel.text = (sfxSlider.value + 80).ToString();
 
     }
 
