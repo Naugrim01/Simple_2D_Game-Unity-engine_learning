@@ -281,13 +281,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1847171888}
   m_HandleRect: {fileID: 1418490867}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MinValue: -80
+  m_MaxValue: 20
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1841470753}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMusicVol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &58647427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,13 +1849,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 308900926}
   m_HandleRect: {fileID: 1943687452}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MinValue: -80
+  m_MaxValue: 20
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1841470753}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetSFXVol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &619915912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +4000,13 @@ MonoBehaviour:
     vertical: 720
   selsectedResolution: 0
   resolutionLabel: {fileID: 1886403981}
+  theMixer: {fileID: 24100000, guid: 8be4f29b108ebc649bb733124a555272, type: 2}
+  mastSlider: {fileID: 2127893720}
+  musicSlider: {fileID: 38029940}
+  sfxSlider: {fileID: 584175685}
+  mastLabel: {fileID: 837123600}
+  musicLabel: {fileID: 1911530647}
+  sfxLabel: {fileID: 1587922399}
 --- !u!1 &1847171887
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,13 +4419,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1839187868}
   m_HandleRect: {fileID: 64470672}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MinValue: -80
+  m_MaxValue: 20
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1841470753}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMasterVol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3800903286314694789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4520,3 +4563,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ef83b3bd752794dbddf4b02bfce994, type: 3}
+--- !u!1001 &3971837719660575971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484995225922995455, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188535871447380765, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}
+      propertyPath: m_Name
+      value: CaptChipPants
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74a61be88c2338046904fd1c2d12e9e4, type: 3}

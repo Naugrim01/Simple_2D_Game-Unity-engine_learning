@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 
@@ -14,6 +15,12 @@ public class OptionsMenu : MonoBehaviour
     public int selsectedResolution;
 
     public Text resolutionLabel;
+
+    public AudioMixer theMixer;
+
+    public Slider mastSlider, musicSlider, sfxSlider;
+        
+    public Text mastLabel, musicLabel, sfxLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +102,25 @@ public class OptionsMenu : MonoBehaviour
         //set the resolution
 
         Screen.SetResolution(resolutions[selsectedResolution].horizontal, resolutions[selsectedResolution].vertical, fullscreenTog.isOn);
+    }
+
+    public void SetMasterVol()
+    {
+        mastLabel.text = (mastSlider.value + 80).ToString();
+        theMixer.SetFloat("MasterVol", mastSlider.value);
+    }
+
+    public void SetMusicVol()
+    {
+        musicLabel.text = (musicSlider.value + 80).ToString();
+        theMixer.SetFloat("MusicVol", musicSlider.value);
+
+    }
+
+    public void SetSFXVol()
+    {
+        sfxLabel.text = (sfxSlider.value + 80).ToString();
+        theMixer.SetFloat("SFXVol", sfxSlider.value);
     }
 }
 
