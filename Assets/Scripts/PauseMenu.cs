@@ -59,13 +59,18 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMain()
     {
-        //SceneManager.LoadScene(mainMenuScene);
-        //Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenuScene);//
+        Time.timeScale = 1f;//
 
-        StartCoroutine(LoadMain());
+      /*  StartCoroutine(LoadMain()); */
     }
 
-
+    public void Quit()
+    {
+        Time.timeScale = 1f;
+        Application.Quit();
+    }
+    /*
     public IEnumerator LoadMain()
     {
         loadingScreen.SetActive(true);
@@ -91,10 +96,5 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
     }
-
-    public void Quit()
-    {
-        Time.timeScale = 1f;
-        Application.Quit();
-    }
+    */
 }

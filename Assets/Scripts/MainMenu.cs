@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public string firstLevel;
 
     public GameObject optionsScreen;
+
+    public GameObject loadingScreen, loadingIcon;
+    public Text loadingText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(firstLevel);
+        //SceneManager.LoadScene(firstLevel);
+        StartCoroutine(LoadStart());
     }
 
     public void OpenOptions()
@@ -40,5 +45,30 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    
+    public IEnumerator LoadStart()
+    {
+        loadingScreen.SetActive(true);
 
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(firstLevel);
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= .9f)
+            {
+                loadingText.text = "Press any key to continue";
+                loadingIcon.SetActive(false);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+
+                    Time.timeScale = 1f;
+                }
+            }
+
+            yield return null;
+        }
+    }
 }
