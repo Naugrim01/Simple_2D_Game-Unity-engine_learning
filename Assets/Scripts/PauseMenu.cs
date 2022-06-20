@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public string mainMenuScene;
 
     private bool isPaused;
+
+    public GameObject loadingScreen, loadingIcon;
+    public Text loadingText;
 
     // Start is called before the first frame update
     void Start()
@@ -55,8 +59,37 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMain()
     {
-        SceneManager.LoadScene(mainMenuScene);
-        Time.timeScale = 1f;
+        //SceneManager.LoadScene(mainMenuScene);
+        //Time.timeScale = 1f;
+
+        StartCoroutine(LoadMain());
+    }
+
+
+    public IEnumerator LoadMain()
+    {
+        loadingScreen.SetActive(true);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mainMenuScene);
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if(asyncLoad.progress >= .9f)
+            {
+                loadingText.text = "Press any key to continue";
+                loadingIcon.SetActive(false);
+                if(Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+
+                    Time.timeScale = 1f;
+                }
+            }
+
+            yield return null;
+        }
     }
 
     public void Quit()

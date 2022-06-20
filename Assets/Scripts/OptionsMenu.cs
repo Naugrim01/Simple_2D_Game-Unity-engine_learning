@@ -56,7 +56,7 @@ public class OptionsMenu : MonoBehaviour
         {
             theMixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("MasterVol"));
             mastSlider.value = PlayerPrefs.GetFloat("MasterVol");
-           
+
         }
 
         if (PlayerPrefs.HasKey("MusicVol"))
@@ -72,6 +72,7 @@ public class OptionsMenu : MonoBehaviour
             sfxSlider.value = PlayerPrefs.GetFloat("SFXVol");
          
         }
+        
         mastLabel.text = (mastSlider.value + 80).ToString();
         musicLabel.text = (musicSlider.value + 80).ToString();
         sfxLabel.text = (sfxSlider.value + 80).ToString();
