@@ -5126,6 +5126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2526699109553802536, guid: 14afe92d9d4b9d14cbd8b7a2aa32e9e7, type: 3}
+      propertyPath: mainMenuScene
+      value: LoadingMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2526699109553802537, guid: 14afe92d9d4b9d14cbd8b7a2aa32e9e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0

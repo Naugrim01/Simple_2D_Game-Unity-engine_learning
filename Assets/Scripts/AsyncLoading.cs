@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
-{
-    public string firstLevel;
+public class AsyncLoading : MonoBehaviour
 
-    public GameObject optionsScreen;
+
+{
+
+    public string loadingScene;
+
+
 
     public GameObject loadingScreen, loadingIcon;
     public Text loadingText;
@@ -16,41 +19,23 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(LoadScene());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene(firstLevel);
-        //StartCoroutine(LoadStart());
-    }
 
-    public void OpenOptions()
-    {
-        optionsScreen.SetActive(true);
-    }
 
-    public void CloseOptions()
-    {
-        optionsScreen.SetActive(false);
-    }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    
-    /*public IEnumerator LoadStart()
+    public IEnumerator LoadScene()
     {
         loadingScreen.SetActive(true);
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(firstLevel);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(loadingScene);
 
         asyncLoad.allowSceneActivation = false;
 
@@ -70,5 +55,6 @@ public class MainMenu : MonoBehaviour
 
             yield return null;
         }
-    }*/
+    }
+
 }

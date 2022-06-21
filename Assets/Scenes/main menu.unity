@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8d25ca55bfcf14fbbed87872e33b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: level1
+  firstLevel: LoadingLevel1
   optionsScreen: {fileID: 1841470749}
   loadingScreen: {fileID: 635518330}
   loadingIcon: {fileID: 635518329}
